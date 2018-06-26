@@ -11,5 +11,4 @@ app.use(bodyParser.json()); // use to send json data for the project
 
 app.listen(3000, () => console.log('Server started at port : 3000')); //start the express server
 
- 
-app.use('/employee', employeeController);
+app.use('/employees', employeeController);
