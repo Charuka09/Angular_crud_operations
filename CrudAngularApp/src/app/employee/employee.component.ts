@@ -1,3 +1,4 @@
+import { Employee } from './../shared/employee.model';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -17,6 +18,7 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
+    this.refreshEmployeeList();
   }
 
   resetForm(form?: NgForm){
@@ -37,6 +39,10 @@ export class EmployeeComponent implements OnInit {
       M.toast({ html: 'saved successfully' , classs: 'rounded'});
     });
   }
-
+  refreshEmployeeList(){
+    this.employeeService.getEmployeeList().subscribe((res) => {
+      this.employeeService.employee = res as Employee[];
+    })
+  }
 
 }

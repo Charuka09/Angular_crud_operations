@@ -40,7 +40,18 @@
             </form>
           </div>
           <div class="col s7">
-
+            <table class="responsive-table highlight">
+              <thead>
+                <th>Name</th>
+                <th>Position</th>
+                <th>office</th>
+              </thead>
+              <tr *ngFor="let emp of employeeService.employee">
+                <td>{{emp.name}}</td>
+                <td>{{emp.position}}</td>
+                <td>{{emp.office}}</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
