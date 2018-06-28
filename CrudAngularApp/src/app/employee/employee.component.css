@@ -1,0 +1,8 @@
+.card{
+    background-color: #19334d;
+}
+ button{
+    background: transparent;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+}
