@@ -34,15 +34,40 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSubmit(form :NgForm){
+    if(form.value._id == ""){
     this.employeeService.postEmployee(form.value).subscribe((res) => {
       this.resetForm(form);
+      this.refreshEmployeeList();
       M.toast({ html: 'saved successfully' , classs: 'rounded'});
     });
+  }
+  else{
+    this.employeeService.putEmployee(form.value).subscribe((res) => {
+      this.resetForm(form);
+      M.toast({ html: 'saved successfully' , classs: 'rounded'});
+      this.refreshEmployeeList();
+    });
+  }
   }
   refreshEmployeeList(){
     this.employeeService.getEmployeeList().subscribe((res) => {
       this.employeeService.employee = res as Employee[];
     })
+  }
+
+  onEdit(emp :Employee){
+    this.employeeService.selectedEmployee=emp;
+  }
+
+  onDelete(_id: string, form:NgForm){
+    if(confirm('Are you sure to delete this record?') == true){
+      this.employeeService.deleteEmployee(_id).subscribe((res) => {
+        this.refreshEmployeeList();
+        this.resetForm(form);
+        M.toast({ html : 'Deleted successfully' , classes: 'rounded'});
+      });
+
+    }
   }
 
 }

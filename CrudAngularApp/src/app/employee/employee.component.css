@@ -6,3 +6,9 @@
     border: 1px solid #ddd;
     margin-left: 10px;
 }
+.action-btn{
+    color: #888;
+}
+input{
+    color: #ddd;
+}

@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
-
 import { Employee } from './employee.model';
 
 @Injectable({
@@ -22,5 +20,10 @@ export class EmployeeService {
   getEmployeeList(){
     return this.http.get(this.baseURl);
   }
-
+  putEmployee(emp : Employee){
+    return this.http.put(this.baseURl + '/$(emp._id',emp);
+  }
+  deleteEmployee(_id : string){
+    return this.http.delete(this.baseURl + '/$(_id)');
+  }
 }

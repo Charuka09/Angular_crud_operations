@@ -45,11 +45,20 @@
                 <th>Name</th>
                 <th>Position</th>
                 <th>office</th>
+                <th></th>
               </thead>
               <tr *ngFor="let emp of employeeService.employee">
                 <td>{{emp.name}}</td>
                 <td>{{emp.position}}</td>
                 <td>{{emp.office}}</td>
+                <td>
+                  <a class="action-btn" (click)="onEdit(emp)">
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+                    <i class="material-icons">delete</i>
+                  </a>
+                </td>
               </tr>
             </table>
           </div>
